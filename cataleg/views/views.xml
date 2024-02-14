@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="cataleg.list">
+      <field name="name">Cataleg list</field>
+      <field name="model">cataleg.cataleg</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tipusCategoriaObj"/>
+          <field name="tipuPorcObj"/>
+          <field name="Preu"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="cataleg.action_window">
+      <field name="name">Cataleg window</field>
+      <field name="res_model">cataleg.cataleg</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="cataleg.action_server">
+      <field name="name">Cataleg server</field>
+      <field name="model_id" ref="model_cataleg_cataleg"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+  -->
+    <!-- Top menu item -->
+
+    <menuitem name="Cataleg" id="cataleg.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="cataleg.menu_1" parent="cataleg.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="cataleg.menu_1_list" parent="cataleg.menu_1"
+              action="cataleg.action_window"/>
+
+
+  </data>
+</odoo>

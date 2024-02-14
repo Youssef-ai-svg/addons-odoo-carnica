@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <data>
+      <!-- Aquí defines tu vista para la orden de compra -->
+      <record model="ir.ui.view" id="purchase_order_form_inherited">
+          <field name="name">purchase.order.form.inherited</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.purchase_order_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='partner_id']" position="after">
+                  <field name="TipusPorc"/>
+              </xpath>
+          </field>
+      </record>
+    </data>
+  </data>
+</odoo>

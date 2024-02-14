@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="tipu_porc.list">
+      <field name="name">TipuPorc list</field>
+      <field name="model">tipu_porc.tipu_porc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="tipu_porc.action_window">
+      <field name="name">TipuPorc window</field>
+      <field name="res_model">tipu_porc.tipu_porc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="tipu_porc.action_server">
+      <field name="name">TipuPorc server</field>
+      <field name="model_id" ref="model_tipu_porc_tipu_porc"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="TipuPorc" id="tipu_porc.menu_root"/>
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="tipu_porc.menu_1" parent="tipu_porc.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="tipu_porc.menu_1_list" parent="tipu_porc.menu_1"
+              action="tipu_porc.action_window"/>
+
+
+  </data>
+</odoo>

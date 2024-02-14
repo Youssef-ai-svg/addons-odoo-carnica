@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="category.list">
+      <field name="name">Category list</field>
+      <field name="model">category.category</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="Preu"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="category.action_window">
+      <field name="name">Category window</field>
+      <field name="res_model">category.category</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="category.action_server">
+      <field name="name">Category server</field>
+      <field name="model_id" ref="model_category_category"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Category" id="category.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="category.menu_1" parent="category.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="category.menu_1_list" parent="category.menu_1"
+              action="category.action_window"/>
+
+  </data>
+</odoo>

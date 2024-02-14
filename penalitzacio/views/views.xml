@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="penalitzacio.list">
+      <field name="name">Penalitzacio list</field>
+      <field name="model">penalitzacio.penalitzacio</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tipusporcObj"/>
+          <field name="name"/>
+          <field name="MinPes"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="penalitzacio.action_window">
+      <field name="name">Penalitzacio window</field>
+      <field name="res_model">penalitzacio.penalitzacio</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="penalitzacio.action_server">
+      <field name="name">Penalitzacio server</field>
+      <field name="model_id" ref="model_penalitzacio_penalitzacio"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Penalitzacio" id="penalitzacio.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="penalitzacio.menu_1" parent="penalitzacio.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="penalitzacio.menu_2" parent="penalitzacio.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="List" id="penalitzacio.menu_1_list" parent="penalitzacio.menu_1"
+              action="penalitzacio.action_window"/>
+    <!-- <menuitem name="Server to list" id="penalitzacio" parent="penalitzacio.menu_2"
+              action="penalitzacio.action_server"/> -->
+
+  </data>
+</odoo>
