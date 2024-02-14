@@ -41,5 +41,7 @@ class PersonalitzarCompra(models.Model):
                     'name': self.env['product.product'].browse(category_key[0]).name,
                     'product_qty': qty,
                     'price_unit': category_price[category_key] / category_count[category_key],
+                    # 'TipuPorc': category_key[2]  # Pasamos el TipuPorc como valor
+
                 }
                 self.env['purchase.order.line'].create(product_vals)
